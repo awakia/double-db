@@ -37,6 +37,4 @@ ActiveRecord::Schema.define(version: 20171018030317) do
     t.index ["profile_id"], name: "index_working_histories_on_profile_id"
   end
 
-  add_foreign_key "profiles", "users"
-  add_foreign_key "working_histories", "profiles"
 end
