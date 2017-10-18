@@ -1,6 +1,4 @@
-class Profile < ApplicationRecord
+class Profile < SecondRecord
   belongs_to :user
   has_many :working_histories
-
-  establish_connection :second
 end
