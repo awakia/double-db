@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rspec-rails'
 gem 'factory_girl_rails'
+gem 'capybara'
+gem 'selenium-webdriver'
 gem 'dotenv-rails'
 
 group :development, :test do
