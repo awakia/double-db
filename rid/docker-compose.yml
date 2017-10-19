@@ -1,0 +1,27 @@
+version: '2.1'
+
+services:
+  app:
+    # image: awakia/double-db-dev:latest
+    build: .
+    volumes:
+      - ..:/app
+      - ~/.aws:/root/.aws
+    volumes_from:
+      - volume
+    ports:
+      - 3100:3100
+    extra_hosts:
+      localhost: "${DOCKER_HOST_IP}"
+    environment:
+      USER: "${USER}"
+    command: tail -f /dev/null
+
+  volume:
+    image: alpine:latest
+    volumes:
+      - /app/tmp
+      - /app/log
+      - /app/vendor/bundle
+      - /app/.bundle
+    command: tail -f /dev/null

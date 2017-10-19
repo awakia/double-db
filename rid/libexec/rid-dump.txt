@@ -1,0 +1,4 @@
+Dump data in the data container
+
+Usage:
+  rid dump
