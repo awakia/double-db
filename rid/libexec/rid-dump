@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+
+VOLUME_NAME=wantedlywantedly_volume_1
+
+echo '==> vendor/bundle'
+[ -d ../vendor/bundle ] && rm -rf ../vendor/bundle
+docker cp $VOLUME_NAME:/app/vendor/bundle ../vendor
+echo 'ok'
+
+echo '==> node_modules'
+[ -d ../node_modules ] && rm -rf ../node_modules
+docker cp $VOLUME_NAME:/app/node_modules ..
+echo 'ok'
+
+echo '==> tmp/cache'
+[ -d ../tmp/cache ] && rm -rf ../tmp/cache
+docker cp $VOLUME_NAME:/app/tmp/cache ../tmp
+echo 'ok'
