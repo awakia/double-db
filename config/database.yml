@@ -24,7 +24,7 @@ default: &default
 
 development:
   <<: *default
-  database: first-db_development
+  url: <%= ENV['DATABASE_URL'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,7 +58,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: first-db_test
+  url: <%= ENV['TEST_DATABASE_URL'] %>
+  database: <%= ENV['TEST_DATABASE_NAME'] %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +82,4 @@ test:
 #
 production:
   <<: *default
-  database: first-db_production
-  username: first-db
-  password: <%= ENV['FIRST-DB_DATABASE_PASSWORD'] %>
+  url: <%= ENV['TEST_DATABASE_URL'] %>
